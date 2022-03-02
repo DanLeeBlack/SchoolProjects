@@ -1,0 +1,20 @@
+Results of schedtests as described in project assignment
+
+$ schedtest 4 10000000 &
+$ schedtest 2 20000000 &
+$ schedtest 0 40000000 &
+$ pstat
+pid      ticks       queue 
+  1        0      3
+  2        0      3
+  9        0      3
+  4        0      3
+  6        0      3
+  84215045        -2147481024      0
+  0        0      0
+
+
+  4.2/4.3 (pstat operates within my understanding of the requirements and returns the pid, ticks, and queue of all process)
+  4.4 (a queue is implemented into the proc structure in the form of an int variable holding the queue level of the running process and the scheduler running through a series of for loops that only run if the level above is not running a process)
+  4.5 (when a process is set to runnable it's status in the queue is evaluated as well as its ticks to allow the process to be moved down in the queue)
+  4.6 (within the yield() function inside of proc.c  a check is made against a tick counter to reset all processes to the top of the queue)
